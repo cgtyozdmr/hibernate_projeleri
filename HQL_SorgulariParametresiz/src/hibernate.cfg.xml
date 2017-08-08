@@ -1,0 +1,39 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+ 
+<hibernate-configuration>
+ 
+    <session-factory>
+ 
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <!--Veritabanımız için bağlantı yolunu vereceğiz  -->
+        <property name="connection.url">jdbc:mysql://localhost:3306/hibernateee</property>
+         <!-- Veritabanı kullanıcı adı -->
+        <property name="connection.username">root</property>
+         <!-- Kullanıcı parolamız -->
+        <property name="connection.password">admin</property>
+ 
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">2</property>
+ 
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+ 
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+ 
+        <!-- Konsolda yapılan işlemlerin sql sorgusu gösterilsin mi -->
+        <property name="show_sql">true</property>
+ 
+        <!-- Burası create olursa tablo her defasında yeniden oluşturulur -->
+        <!-- Update olur ise veritabanı silinmez üzerine ekleme yapılır -->
+        <property name="hbm2ddl.auto">create</property>
+		
+		 <!-- Burası ise veritabanımıza haritalanacak olan personel sınıfımızın yolu -->
+        <mapping class="org.javabrains.koushik.dto.UserDetails"/>
+        
+ 
+    </session-factory>
+ 
+</hibernate-configuration>
